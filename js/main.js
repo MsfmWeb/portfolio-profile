@@ -1,17 +1,34 @@
 $(function() {
 
-    	//SVGアニメーションの描画
-// var stroke;
-// stroke = new Vivus('svg_loading', {//アニメーションをするIDの指定
-//     start:'manual',//自動再生をせずスタートをマニュアルに
-//     type: 'scenario-sync',// アニメーションのタイプを設定
-//     duration: 100,//アニメーションの時間設定。数字が小さくなるほど速い
-//     forceRender: false,//パスが更新された場合に再レンダリングさせない
-//     animTimingFunction:Vivus.EASE,//動きの加速減速設定
-// });
+    var webStorage = function() {
+        if(sessionStorage.getItem('access')) {
+            $('body').css('opacity', '1');
+        } else {
+            sessionStorage.setItem('access', 'true');
+            $('.load').addClass('is-active');
+            $('body').css('opacity', '1');
+            
+            //SVGアニメーションの描画
+            var stroke;
+            stroke = new Vivus('svg_loading', {//アニメーションをするIDの指定
+                start:'manual',//自動再生をせずスタートをマニュアルに
+                type: 'scenario-sync',// アニメーションのタイプを設定
+                duration: 40,//アニメーションの時間設定。数字が小さくなるほど速い
+                forceRender: false,//パスが更新された場合に再レンダリングさせない
+                animTimingFunction:Vivus.EASE,//動きの加速減速設定
+            });
+                stroke.play();
 
-// stroke.play();
+            //手描きアニメーションが終了時のフェードアウト
+            $(window).on('load', function() {
+                $('#load').delay(2500).fadeOut('slow');
+                $('#svg_loading').delay(2500).fadeOut('slow');
 
+                stroke.play();
+            });
+        }
+    }
+    webStorage();
 
     // ハンバーガーメニュー 
     $('.hamburger').on('click', function() {
@@ -64,4 +81,19 @@ $(function() {
         $('.modal').fadeOut();
         return false;
     });
+
+    // フェードイン
+    // $(window).scroll(function() {
+    //     $('.js-fadeIn').each(function() {
+    //         let elemPos = $(this).offset().top;
+    //         let scroll = $(window).scrollTop();
+    //         let windowHeight = $(window).height();
+    //         let target = $('.js-fadeIn');
+    //         let speed = 1000;
+
+    //         if(scroll > elemPos - windowHeight) {
+    //             $('.js-fadeIn').fadeIn(1500, );
+    //         }
+    //     });
+    // });
 });

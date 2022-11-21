@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masafumi Inoue Portfolio - Contact</title>
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.6/vivus.min.js"></script>
+</head>
+<body>
+    <!-- header -->
+    <header class="header">
+        <div class="inner header__inner">
+            <p><a class="logo header__logo" href="index.html">Masafumi Inoue</a></p>
+            <nav class="header-nav">
+                <p><a class="logo header-nav__logo" href="index.html">Masafumi Inoue</a></p>
+                <ul class="header-nav__list">
+                    <li class="header-nav__item"><a class="header-nav__link" href="#work" data-hover="制作実績">Work</a></li>
+                    <li class="header-nav__item"><a class="header-nav__link" href="#skill" data-hover="言語/ツール">Skill</a></li>                    <li><a href="#"></a></li>
+                    <li class="header-nav__item"><a class="header-nav__link" href="#about" data-hover="私について">About</a></li>
+                    <li class="header-nav__item current"><a class="header-nav__link" href="contact.html" data-hover="お問い合わせ">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger">
+                <span class="hamburger__bar"></span>
+                <span class="hamburger__bar"></span>
+                <span class="hamburger__bar"></span>
+            </button>
+        </div>
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main>
+        <section class="page-header">
+            <div class="inner page-header__inner">
+                <h1 class="page-header__title">
+                    <span class="page-header__en">Contact</span>
+                    <span class="page-header__ja">お問い合わせ</span>
+                </h1>
+            </div>
+        </section>
+
+        <section class="contact-form">
+            <div class="inner">
+                <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSf8ZYYQCDWqwmiIAb8fk7Xx8Y8I4NWwRcBOdRdMH91BMRmCJg/formResponse" method="post" class="form">
+                    <div class="form__unit">
+                        <label for="your-company" class="form__head">会社名</label>
+                        <input type="text" name="entry.1831697770" placeholder="例）株式会社〇〇" class="form__body" id="your-company">
+                    </div>
+                    <div class="form__unit">
+                        <label for="your-name" class="form__head form__head--required">お名前</label>
+                        <input type="text" name="entry.1087523836" placeholder="例）山田太郎" id="your-name" class="form__body">
+                    </div>
+                    <div class="form__unit">
+                        <label for="your-furigana" class="form__head form__head--required">ふりがな</label>
+                        <input type="text" name="entry.2107662661" placeholder="例）やまだたろう" id="your-furigana" class="form__body">
+                    </div>
+                    <div class="form__unit">
+                        <label for="your-email" class="form__head form__head--required">メールアドレス</label>
+                        <input type="email" name="entry.385033160" id="your-email" class="form__body">
+                    </div>
+                    <div class="form__unit">
+                        <label for="message" class="form__head form__head--required">お問い合わせ内容</label>
+                        <textarea name="entry.1255248463" id="message" cols="30" rows="10" itemid="message" class="form__body form__body--textarea"></textarea>
+                    </div>
+                    <div class="form__unit">
+                        <button type="submit" class="btn form__submit-btn">送信</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <!-- /main -->
+    <!-- footer -->
+    <footer class="footer">
+        <div class="inner footer__inner">
+            <p class="logo footer__logo">Masafumi Inoue</p>
+            <p class="copyright">&copy; 2022 Masafumi Inoue</p>
+        </div>
+    </footer>
+    <!-- /footer -->
+    <script src="js/main.js"></script>
+</body>
+</html>
