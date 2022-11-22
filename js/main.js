@@ -1,14 +1,16 @@
 $(function() {
 
+
+    //ロード回数の制御
     var webStorage = function() {
-        if(sessionStorage.getItem('access')) {
+        if(sessionStorage.getItem('access')) {//ブラウザのアクセス記録がすでにある場合
             $('body').css('opacity', '1');
-        } else {
+        } else {//ブラウザのアクセスが初回の場合
             sessionStorage.setItem('access', 'true');
             $('.load').addClass('is-active');
             $('body').css('opacity', '1');
             
-            //SVGアニメーションの描画
+            //SVGアニメーションの描画 vivus
             var stroke;
             stroke = new Vivus('svg_loading', {//アニメーションをするIDの指定
                 start:'manual',//自動再生をせずスタートをマニュアルに
@@ -30,6 +32,8 @@ $(function() {
     }
     webStorage();
 
+
+
     // ハンバーガーメニュー 
     $('.hamburger').on('click', function() {
         $(this).toggleClass('active');
@@ -39,6 +43,8 @@ $(function() {
             $('.header-nav').removeClass('show');
         }
     });
+
+
 
     // ナビゲーション
     $('.header-nav__link').on('click', function() {
@@ -63,6 +69,9 @@ $(function() {
         }
     });
 
+
+
+
     // モーダルウィンドウを開く
     $('.modal-open').on('click', function() {
         let target = $(this).data('target');
@@ -70,7 +79,7 @@ $(function() {
         scrollPosition = $(window).scrollTop();
 
         $('body').addClass('fixed').css({'top': -scrollPosition});
-        $(modal).fadeIn();
+        $(modal).fadeIn(300);
         return false;
     });
 
@@ -82,18 +91,68 @@ $(function() {
         return false;
     });
 
-    // フェードイン
-    // $(window).scroll(function() {
-    //     $('.js-fadeIn').each(function() {
-    //         let elemPos = $(this).offset().top;
-    //         let scroll = $(window).scrollTop();
-    //         let windowHeight = $(window).height();
-    //         let target = $('.js-fadeIn');
-    //         let speed = 1000;
 
-    //         if(scroll > elemPos - windowHeight) {
-    //             $('.js-fadeIn').fadeIn(1500, );
-    //         }
-    //     });
-    // });
+
+    //スクロールした際の動きを関数でまとめる
+    function PageTopAnime() {
+        var scroll = $(window).scrollTop();
+        if (scroll >= 600) {//上から600pxスクロールしたら
+            $('#page-top').removeClass('DownMove');//#page-topについているDownMoveというクラス名を除く
+            $('#page-top').addClass('UpMove');//#page-topについているUpMoveというクラス名を付与
+        } else {
+            if ($('#page-top').hasClass('UpMove')) {//すでに#page-topにUpMoveというクラス名がついていたら
+                $('#page-top').removeClass('UpMove');//UpMoveというクラス名を除き
+                $('#page-top').addClass('DownMove');//DownMoveというクラス名を#page-topに付与
+            }
+        }
+
+        var wH = window.innerHeight; //ブラウザの内側の高さ（ページが表示され、見えている高さ）を取得
+            var footerPos = $('.footer').offset().top; //#footerのtopの位置を取得
+            if(scroll + wH >= (footerPos + 20)) {//時点でのスクロール量 + 現在表示されているブラウザの高さ と #footerのtop位置 + 20(ページトップボタンのbottom位置)を比較して前者が大きいならば
+                var pos = (scroll + wH) - footerPos + 20;//(時点でのスクロール量 + 現在表示されているブラウザの高さ) - #footerのtop位置 + 20(ページトップボタンのbottom位置)
+                $('#page-top').css('bottom', pos); //ページトップボタンのbottomにposの値を指定
+            } else {
+                if ($('#page-top').hasClass('UpMove')){ //上記以外かつUpMoveを持っていれば
+                    $('#page-top').css('bottom', '20px'); //ページトップボタンを画面に対してbottom20pxで配置
+                }
+            }
+    }
+
+    // 画面をスクロールをしたら動かしたい場合の記述
+    $(window).scroll(function () {
+        PageTopAnime();/* スクロールした際の動きの関数を呼ぶ*/
+    });
+
+    // #page-topをクリックした際の設定
+    $('#page-top').click(function () {
+        $('body,html').animate({
+            scrollTop: 0//ページトップまでスクロール
+        }, 500);//ページトップスクロールの速さ。数字が大きいほど遅くなる
+        return false;//リンク自体の無効化
+    });
+
+
+
+    
+    //スクロールに合わせた時間差フェードイン
+    function scrollFadeIn() {
+        $('.js-fadeIn').each(function(i) {
+            const windowHeight = $(window).scrollTop();
+            const targetHeight = $(this).offset().top - 700;
+
+            if(windowHeight > targetHeight) {
+                $(this).addClass('in');
+                $('.js-fadeIn.in').each(function(i) {
+                    let delay = 80;
+                    $(this).delay(i * delay).queue(function(next){
+                        $(this).addClass('scrollIn');
+                        next();
+                    })
+                });
+            }
+        });
+    }
+    $(window).on('scroll', function() {
+        scrollFadeIn();
+    });
 });

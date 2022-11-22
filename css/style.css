@@ -1,5 +1,7 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Sans+JP&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Sans+JP&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP&family=Roboto&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Roboto&display=swap');
 /* 
     ページ設定
 ====================================== */
@@ -16,7 +18,7 @@ html {
 body {
     color: #333;
     font-size: 1rem;
-    font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+    font-family: 'Roboto', 'Noto Sans JP' ,sans-serif;
     /* 2回目以降のロードで一瞬ロード画面がちらつく問題の対策 */
     opacity: 0;
 }
@@ -36,7 +38,7 @@ ul {
 }
 
 /* 
-    共通モジュール
+    共通
 ====================================== */
 /* Layout */
 .inner {
@@ -69,11 +71,7 @@ ul {
     font-size: 1.125rem;
 }
 
-.section-title--color {
-    color: #fff;
-}
-
-/* btn */
+/* ボタン */
 .btn {
     display: inline-block;
     position: relative;
@@ -89,6 +87,7 @@ ul {
     transition: .3s ease;
 }
 
+/* ボタン右の矢印 */
 .btn::after {
     display: inline-block;
     position: absolute;
@@ -110,16 +109,16 @@ ul {
 }
 
 /* スクロールしたらフェードイン */
-/* .js-fadeIn {
-    display: none;
-} */
+.js-fadeIn {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all .3s ease;
+} 
 
-/* .scrollIn.js-fadeIn {
+.js-fadeIn.scrollIn {
     opacity: 1;
+    transform: translateY(0);
 }
- */
-
-
 
 /* 
     header
@@ -167,7 +166,6 @@ ul {
     display: inline-block;
     margin-top: 80px;
 }
-
 
 .header-nav__list {
     width: 100%;
@@ -281,14 +279,86 @@ ul {
 .copyright {
     font-size: .75rem;
 }
+
+.credit {
+    display: block;
+    color: rgba(0, 0, 0, .5);
+    font-size: .75rem;
+}
+
+/* ページトップボタン index.htmlのみ*/
+.page-top {
+    opacity: 0;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 5;
+    transform: translateY(-100px);
+}
+
+.page-top span {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(240, 102, 166), rgba(162, 96, 191), rgba(0, 103, 194));
+    transition: opacity .3s ease;
+}
+
+/* ページトップボタン 矢印 */
+.page-top span::before {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -35%) rotate(-45deg);
+    width: 25px;
+    height: 25px;
+    border-top: 5px solid #fff;
+    border-right: 5px solid #fff;
+    content: '';
+}
+
+/* ページトップボタン hover時 */
+.page-top:focus span,
+.page-top:hover span {
+    opacity: .7;
+}
+
+/* 下から上に移動 */
+.UpMove{
+    animation: UpAnime 0.5s forwards;
+}
+
+@keyframes UpAnime{
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 上から下に移動 */
+.DownMove{
+    animation: DownAnime 0.5s forwards;
+}
+@keyframes DownAnime{
+from {
+    opacity: 1;
+    transform: translateY(0);
+}
+to {
+    opacity: 1;
+    transform: translateY(100px);
+}
+}
+
 /* 
     [index.html]
 **************************************************************************** */
-
-/* 
-    main
-====================================== */
-
 /* 
     loading
 ====================================== */
@@ -296,6 +366,7 @@ ul {
     display: none;
 }
 
+/* 初回ロード時に付与 */
 .is-active {
     display: flex;
     flex-direction: column;
@@ -311,6 +382,7 @@ ul {
     background: linear-gradient(135deg, rgba(240, 102, 166), rgba(162, 96, 191), rgba(0, 103, 194));
 }
 
+/* svg */
 #svg_loading {
     transform: translateY(-10%);
 }
@@ -335,6 +407,7 @@ ul {
 .title {
     font-size: 4rem;
     text-align: center;
+    filter: drop-shadow(4px 4px 1px rgba(255, 255, 255, .6));
 }
 
 .sub-title {
@@ -342,8 +415,6 @@ ul {
     margin-top: 8px;
     font-size: 1.5rem;
 }
-
-
 
 /* 
     work
@@ -422,6 +493,7 @@ ul {
     margin-bottom: 24px;
 }
 
+/* モーダル内 WEBページボタン */
 .modal-content__btn {
     display: inline-block;
     margin-top: 8px;
@@ -430,6 +502,7 @@ ul {
     border-radius: 5px;
     background: rgba(0, 103, 194, .6);
     color: #fff;
+    transition: background-color .3s ease;
 }
 
 .modal-content__btn:focus,
@@ -452,6 +525,7 @@ ul {
     text-align: center;
 }
 
+/* 項目タイトルの背景 横線との距離用 */
 .modal-content__disc-title--bg {
     position: relative;
     z-index: 10;
@@ -475,12 +549,18 @@ ul {
     font-size: 1.25rem;
 }
 
+/* モーダル閉じるボタン */
 .close-btn {
     position: absolute;
     right: 0;
     width: 50px;
     height: 50px;
     border-radius: 0 0 0 45px;
+    background: rgba(0, 103, 194, .6);
+    transition: background-color .3s ease;
+}
+
+.close-btn:hover {
     background: #0067C0;
 }
 
@@ -515,7 +595,6 @@ body.fixed {
     skill
 ====================================== */
 .skill {
-    min-height: 80vh;
     background: var(--overlay-BlueToPink);
 }
 
@@ -609,13 +688,6 @@ body.fixed {
 /* 
     [contact.html]
 **************************************************************************** */
-
-/* 
-    main
-====================================== */
-
-
-
 /* 
     contact-form
 ====================================== */
@@ -625,7 +697,6 @@ body.fixed {
     height: min(30vw, 250px);
     background: var(--overlay), url(../img/page_header_contact.png) no-repeat bottom right / contain;
 }
-
 
 .page-header__title {
     position: absolute;
@@ -866,7 +937,7 @@ body.fixed {
     }
 
     .header-nav__link {
-        padding: 8px 30px;
+        padding: 8px 35px;
     }
 
     /* ナビゲーションリンク 昇降ボックス */
@@ -933,6 +1004,13 @@ body.fixed {
         padding-left: 24px;
     }
 
+    /* 
+        [contact.html]
+    **************************************************************************** */
+    /* 
+        contact-form
+    ====================================== */
+    /* ナビゲーション 現在 */
     .current.header-nav__item .header-nav__link,
     .current.header-nav__item .header-nav__link {
         transform: translateY(100%);
