@@ -1,6 +1,4 @@
 @charset "UTF-8";
-/* @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Sans+JP&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP&family=Roboto&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Roboto&display=swap');
 /* 
     ページ設定
@@ -44,7 +42,7 @@ ul {
 .inner {
     max-width: 1240px;
     margin: 0 auto;
-    padding: 60px 16px;
+    padding: 100px 16px;
 }
 
 /* logo */
@@ -57,34 +55,35 @@ ul {
 .section-title {
     font-weight: bold;
     text-align: center;
-    margin-bottom: 32px;
+    margin-bottom: 50px;
 }
 
 .section-title__en {
     margin-bottom: 5px;
-    font-size: 2rem;
+    font-size: clamp(3rem, 5.85vw,5rem );
     letter-spacing: 2px;
 }
 
 .section-title__ja {
     display: block;
-    font-size: 1.125rem;
+    font-size: clamp(1.125rem, 2.34vw, 2rem);
 }
 
 /* ボタン */
 .btn {
     display: inline-block;
     position: relative;
+    width: 350px;
+    margin: 0 auto;
     padding: 1.5rem 5rem;
-    border-radius: 2.25rem;
+    border-radius: 50px;
     background: linear-gradient(135deg, rgba(240, 102, 166, .6), rgba(162, 96, 191, .6), rgba(0, 103, 194, .6), rgba(240, 102, 166, .6), rgba(162, 96, 191, .6), rgba(0, 103, 194, .6),rgba(240, 102, 166, .6), rgba(162, 96, 191, .6), rgba(0, 103, 194, .6));
     background-size: 300% auto;
     background-position: top left;
     color: #fff;
     font-size: 1.5rem;
     font-weight: bold;
-    line-height: 1;
-    transition: .3s ease;
+    transition: all .3s ease;
 }
 
 /* ボタン右の矢印 */
@@ -103,7 +102,7 @@ ul {
 
 .btn:focus,
 .btn:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
     box-shadow: 3px 5px 5px rgba(0, 0, 0, .6);
     background-position: bottom right;
 }
@@ -366,6 +365,11 @@ to {
     display: none;
 }
 
+.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
 /* 初回ロード時に付与 */
 .is-active {
     display: flex;
@@ -405,15 +409,15 @@ to {
 }
 
 .title {
-    font-size: 4rem;
+    color: #000;
+    font-size: clamp(4rem, 11.71vw,10rem);
     text-align: center;
     filter: drop-shadow(4px 4px 1px rgba(255, 255, 255, .6));
 }
 
 .sub-title {
     display: block;
-    margin-top: 8px;
-    font-size: 1.5rem;
+    font-size: clamp(2rem, 4.68vw, 4.5rem);
 }
 
 /* 
@@ -439,7 +443,7 @@ to {
 
 .work-content__title {
     margin-top: 16px;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: normal;
     text-align: center;
 }
@@ -483,7 +487,8 @@ to {
 .modal-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    max-width: 550px;
+    margin: 0 auto;
     padding: 16px;
 }
 
@@ -510,27 +515,15 @@ to {
     background: #0067C0;
 }
 
-.modal-content__body {
-    max-width: 550px;
-}
-
-.modal-content__disc:not(:last-of-type) {
+.modal-content__disc {
     margin-bottom: 40px;
 }
 
 .modal-content__disc-title {
     position: relative;
     margin-bottom: 8px;
+    padding-left: 36px;
     font-size: 1.125rem;
-    text-align: center;
-}
-
-/* 項目タイトルの背景 横線との距離用 */
-.modal-content__disc-title--bg {
-    position: relative;
-    z-index: 10;
-    padding: 0 16px;
-    background: #fff;
 }
 
 /* モーダル内タイトル 横線 */
@@ -538,12 +531,23 @@ to {
     display: inline-block;
     position: absolute;
     top: 50%;
-    left: 0;
+    right: 0;
+    z-index: 3;
     width: 100%;
     height: 1px;
-    border-top: 1px solid #333;
+    background: #000;
     content: '';
 }
+
+/* 項目タイトルの背景 横線との距離用 */
+.modal-content__disc-title--bg {
+    position: relative;
+    z-index: 10;
+    padding: 0 20px;
+    background: #fff;
+}
+
+
 
 .modal-content__disc-title--large {
     font-size: 1.25rem;
@@ -632,8 +636,12 @@ body.fixed {
 }
 
 .skill-content__title {
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     line-height: 50px;
+}
+
+.skill-content__text {
+    line-height: 1.75;
 }
 
 /* 
@@ -666,19 +674,31 @@ body.fixed {
     text-align: center;
 }
 
+.about-profile__text {
+    line-height: 1.75;
+}
+
 .about-text {
     margin-bottom: 16px;
 }
 
 .about-text__title {
     margin-bottom: 8px;
-    font-size: 1.125rem;
+    font-size: 1.5rem;
+}
+
+.about-text__par {
+    line-height: 1.75;
 }
 /* 
     contact
 ====================================== */
 .contact {
     text-align: center;
+}
+
+.contact__pra {
+    line-height: 1.75;
 }
 
 .contact__btn {
@@ -696,6 +716,11 @@ body.fixed {
     width: 100%;
     height: min(30vw, 250px);
     background: var(--overlay), url(../img/page_header_contact.png) no-repeat bottom right / contain;
+}
+
+.page-header__inner {
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .page-header__title {
@@ -716,11 +741,19 @@ body.fixed {
     margin-left: 16px;
 }
 
-/* フォーム */
-.form {
-    max-width: 800px;
+.contact-form__inner {
+    max-width: 1000px;
     margin: 0 auto;
+    padding: 60px 16px;
 }
+
+.contact-form__pra {
+    margin-bottom: 30px;
+    margin: 0 auto 30px;
+}
+
+
+/* フォーム */
 
 .form__unit {
     display: flex;
@@ -787,16 +820,6 @@ body.fixed {
         padding-left: 20px;
     }
 
-    /* section-title */
-    .section-title__en {
-        margin-bottom: 10px;
-        font-size: 2.5rem;
-    }
-
-    .section-title__ja {
-        font-size: 1.125rem;
-    }
-
     /* 
         [index.html]
     **************************************************************************** */
@@ -811,14 +834,6 @@ body.fixed {
     /* 
         mainvisual
     ====================================== */
-    .title {
-        font-size: min(10.6vw, 5rem);
-    }
-
-    .sub-title {
-        font-size: 2rem;
-        margin-top: 16px;
-    }
     .sp {
         display: none;
     }
@@ -871,10 +886,6 @@ body.fixed {
     /* 
         contact-form
     ====================================== */
-    .page-header {
-        padding-top: 80px;
-    }
-
     .page-header__en {
         font-size: 3.5rem;
     }
@@ -891,15 +902,27 @@ body.fixed {
 **************************************************************************** */
 @media screen and (min-width: 960px) {
     /* 
+        共通モジュール
+    ====================================== */
+    /* Layout */
+    .inner {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+
+    /* 
         header
     ====================================== */
     .header {
         position: fixed;
         z-index: 999;
         width: 100%;
-        background: rgba(255, 255, 255, .6);
-        -webkit-backdrop-filter: blur(20px);
-        backdrop-filter: blur(20px);
+        background: linear-gradient( rgba(255, 255, 255, .8) 20%, transparent);
+    }
+
+    .header__inner {
+        padding-top: 0;
+        padding-bottom: 0;
     }
 
     .header__logo {
@@ -961,14 +984,6 @@ body.fixed {
     /* 
         mainvisual
     ====================================== */
-    .title {
-        font-size: 6rem;
-    }
-
-    .sub-title {
-        font-size: 2.5rem;
-        margin-top: 16px;
-    }
 
     /* 
         work
@@ -980,7 +995,9 @@ body.fixed {
 
     /* モーダル */
     .modal_contents {
+        max-width: 1200px;
         max-height: 700px;
+        height: auto;
     }
 
     .modal-content__btn {
@@ -989,18 +1006,18 @@ body.fixed {
 
     .modal-content {
         flex-direction: row;
+        max-width: 1200px;
         width: 100%;
         padding: 20px;
     }
 
     .modal-content__thumb {
-        width: 45%;
+        width: 50%;
         margin-bottom: 0;
     }
 
     .modal-content__body {
-        width: 55%;
-        max-width: none;
+        width: 50%;
         padding-left: 24px;
     }
 
@@ -1018,8 +1035,8 @@ body.fixed {
 
     .page-header__inner {
         position: relative;
-        margin-top: -80px;
-        padding: 0;
+        padding-top: 0;
+        padding-bottom: 0;
         height: inherit;
     }
 }

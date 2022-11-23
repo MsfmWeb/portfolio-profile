@@ -23,9 +23,10 @@ $(function() {
 
             //手描きアニメーションが終了時のフェードアウト
             $(window).on('load', function() {
-                $('#load').delay(2500).fadeOut('slow');
-                $('#svg_loading').delay(2500).fadeOut('slow');
-
+                $('#load').delay(2500).queue(function(){
+                    $(this).addClass('loaded');
+                });
+                
                 stroke.play();
             });
         }
