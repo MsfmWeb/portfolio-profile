@@ -71,8 +71,6 @@ $(function() {
     });
 
 
-
-
     // モーダルウィンドウを開く
     $('.modal-open').on('click', function() {
         let target = $(this).data('target');

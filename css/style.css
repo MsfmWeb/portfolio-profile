@@ -9,6 +9,7 @@
     --overlay-PinkToPurple: linear-gradient(135deg, rgba(240, 102, 166, .6), rgba(162, 96, 191, .6));
 
 }
+
 html {
     font-size: 100%;
 }
@@ -117,6 +118,12 @@ ul {
 .js-fadeIn.scrollIn {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* 区切り線 */
+.hr {
+    height: 5px;
+    background: var(--overlay);
 }
 
 /* 
@@ -421,6 +428,93 @@ to {
 }
 
 /* 
+    about
+====================================== */
+.about-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 768px;
+    margin: 0 auto;
+}
+
+.about-profile__img-area {
+    margin-bottom: 8px;
+    width: 300px;
+    height: 300px;
+}
+.about-profile__img-area img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-text-area__title {
+    margin-bottom: 8px;
+    font-size: 1.5rem;
+}
+
+.profile-text-area__title--name {
+    text-align: center;
+}
+
+.profile-text-area__text {
+    line-height: 1.75;
+}
+
+.profile-text-area__text:not(:last-of-type) {
+    margin-bottom: 16px;
+}
+
+/* 
+    skill
+====================================== */
+.skill {
+    background: var(--overlay-BlueToPink);
+}
+
+.skill-contents {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+    width: 100%;
+    padding: 16px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, .6);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.skill-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.skill-content__thumb {
+    width: 50px;
+}
+
+.skill-content__icon {
+    width: 50px;
+    height: 50px;
+}
+
+.skill-content__body {
+    width: calc(100% - 50px);
+    padding-left: 8px;
+}
+
+.skill-content__title {
+    font-size: 1.5rem;
+    line-height: 50px;
+}
+
+.skill-content__text {
+    line-height: 1.75;
+}
+
+/* 
     work
 ====================================== */
 .work-contents {
@@ -595,101 +689,8 @@ body.fixed {
     left: 0;
 }
 
-/* 
-    skill
-====================================== */
-.skill {
-    background: var(--overlay-BlueToPink);
-}
 
-.skill-contents {
-    display: grid;
-    grid-template-columns: 1fr;
-    row-gap: 32px;
-    width: 100%;
-    padding: 16px;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, .6);
-    -webkit-backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
-    max-width: 450px;
-    margin: 0 auto;
-}
 
-.skill-content {
-    display: flex;
-    justify-content: space-between;
-}
-
-.skill-content__thumb {
-    width: 50px;
-}
-
-.skill-content__icon {
-    width: 50px;
-    height: 50px;
-}
-
-.skill-content__body {
-    width: calc(100% - 50px);
-    padding-left: 8px;
-}
-
-.skill-content__title {
-    font-size: 1.5rem;
-    line-height: 50px;
-}
-
-.skill-content__text {
-    line-height: 1.75;
-}
-
-/* 
-    about
-====================================== */
-.about-profile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.about-profile__thumb {
-    margin-bottom: 8px;
-}
-
-.about-profile__img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-}
-
-.about-profile__body {
-    margin-bottom: 16px;
-}
-
-.about-profile__name {
-    margin-bottom: 8px;
-    font-size: 1.125rem;
-    font-weight: bold;
-    text-align: center;
-}
-
-.about-profile__text {
-    line-height: 1.75;
-}
-
-.about-text {
-    margin-bottom: 16px;
-}
-
-.about-text__title {
-    margin-bottom: 8px;
-    font-size: 1.5rem;
-}
-
-.about-text__par {
-    line-height: 1.75;
-}
 /* 
     contact
 ====================================== */
@@ -839,14 +840,6 @@ body.fixed {
     }
 
     /* 
-        work
-    ====================================== */
-    .work-contents {
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 24px;
-    }
-
-    /* 
         skill
     ====================================== */
     .skill-contents {
@@ -857,29 +850,13 @@ body.fixed {
     }
 
     /* 
-        about
+        work
     ====================================== */
-    .about-profile {
-        flex-direction: row;
-        max-width: 650px;
-        margin: 0 auto 24px;
+    .work-contents {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 24px;
     }
 
-    .about-profile__thumb {
-        width: 150px;
-        margin-bottom: 0;
-    }
-
-    .about-profile__body {
-        width: calc(100% - 150px);
-        margin-bottom: 0;
-        padding-left: 16px;
-    }
-
-    .about-text {
-        max-width: 1000px;
-        margin: 0 auto 24px;
-    }
     /* 
         [contact.html]
     **************************************************************************** */
@@ -982,9 +959,27 @@ body.fixed {
     }
 
     /* 
-        mainvisual
+        about
     ====================================== */
+    .about-profile {
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: none;
+        width: 100%;
+    }
 
+    .about-profile__img-area {
+        width: 35%;
+        height: auto;
+    }
+
+    .about-profile__text-area {
+        width: 60%;
+    }
+
+    .profile-text-area__title--name {
+        text-align: left;
+    }
     /* 
         work
     ====================================== */
