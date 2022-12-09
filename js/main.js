@@ -137,7 +137,7 @@ $(function() {
     function scrollFadeIn() {
         $('.js-fadeIn').each(function(i) {
             const windowHeight = $(window).scrollTop();
-            const targetHeight = $(this).offset().top - 700;
+            const targetHeight = $(this).offset().top - 800;
 
             if(windowHeight > targetHeight) {
                 $(this).addClass('in');
