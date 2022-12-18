@@ -1,0 +1,621 @@
+@charset "UTF-8";
+
+/* 
+    ページ設定
+====================================== */
+html {
+    font-size: 100%;
+}
+
+body {
+    background: url(../img/japanese-paper_00479.jpg);
+    color: #111;
+    font-size: 1.5rem;
+    font-family:'Yu Gothic', sans-serif;
+}
+
+a {
+    color: #8C7A2C;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: bottom;
+}
+
+/* 
+    共通
+====================================== */
+/* Layout */
+.l-container {
+    max-width: 1340px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.m-container {
+    max-width: 1340px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+/* logo */
+.logo__link {
+    display: flex;
+    align-items: center;
+    transition: opacity .3s;
+}
+
+.logo__link:hover {
+    opacity: .6;
+}
+
+.logo__img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.logo__title {
+    font-size: 2rem;
+    font-family: 'Yuji Syuku', serif;
+}
+
+/* h2 見出し */
+.section-title {
+    margin-bottom: 60px;
+    font-size: 4rem;
+    font-family: 'Yu Mincho', serif;
+    line-height: 1;
+    text-align: center;
+}
+
+/* h2 見出し 縦棒 */
+.section-title::before {
+    display: block;
+    width: 3px;
+    height: 60px;
+    margin: 0 auto 30px;
+    background: #111;
+    content: '';
+}
+
+/* h3 見出し */
+.content-title {
+    margin-bottom: 8px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* ボタン */
+.btn {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 10px 64px;
+    background: #f1f1f1;
+    color: #111;
+    font-size: 1.75rem;
+    text-align: center;
+    box-shadow: inset 3px 3px 3px rgba(0, 0, 0, .1), 3px 3px 3px rgba(0, 0, 0, .1);
+    transition: all .3s;
+}
+
+.btn:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: inset 0 0 0 transparent, 5px 5px 5px rgba(0, 0, 0, .3);
+}
+
+/* 
+    header
+====================================== */
+.header {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 80px;
+}
+
+/* Layout */
+.header__l-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: inherit;
+    padding: 0 20px;
+}
+
+/* ナビゲーション */
+.nav__list {
+    display: flex;
+    align-items: center;
+}
+
+.nav__item:not(:first-of-type) {
+    margin-left: 32px;
+}
+
+.nav__link {
+    display: block;
+    position: relative;
+    font-size: 1.25rem;
+    font-size: 1rem;
+    font-size: min(1.66vw, 1.25rem);
+    font-family: 'Yu Mincho', serif;
+    font-weight: bold;
+    transition: all .3s;
+}
+
+/* ナビゲーション hover時 下線 */
+.nav__link::after {
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 3px;
+    border-radius: 3px;
+    background: #be2323;
+    content: '';
+    transition: all .3s;
+}
+
+.nav__link:hover::after {
+    opacity: 1;
+    bottom: 0;
+}
+
+/* 
+    footer
+====================================== */
+.footer {
+    position: relative;
+    z-index: 0;
+    background: url(../img/japanese-paper_00147.jpg);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.footer-content__left {
+    width: 50%;
+}
+
+.footer__logo {
+    margin-bottom: 8px;
+}
+
+.footer__logo .logo__link {
+    justify-content: center;
+}
+
+.address {
+    margin-bottom: 60px;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+}
+
+.map {
+    width: 90%;
+    margin: 0 auto;
+}
+
+iframe {
+    width: 100%;
+    height: 450px;
+}
+
+.footer-content__right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50%;
+    padding-left: 100px;
+    color: #fff;
+}
+
+.info-area {
+    position: relative;
+    width: fit-content;
+    padding: 30px;
+    transform: translateY(30px);
+}
+
+.info-area__bg--front {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    box-shadow: -8px -8px 0 rgba(0, 0, 0, .1);
+    border: 1px solid #494016;
+    background: url(../img/japanese-paper_00483.jpg);
+}
+
+.info-area__bg--front::before {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, .3);
+    content: '';
+}
+
+.info-area__bg--back {
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    z-index: -2;
+    transform: rotate(-10deg);
+    transform-origin: bottom left;
+    width: 100%;
+    height: 100%;
+    background: url(../img/japanese-paper_00134.jpg);
+}
+
+.info-area__bg--back::before {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #494016;
+    background: rgba(255, 255, 255, .3);
+    content: '';
+}
+
+.info-area-title {
+    display: inline-block;
+    font-size: 2rem;
+    font-family: 'Yu Mincho', serif;
+    font-weight: normal;
+    text-decoration: underline;
+}
+
+.info-area__list::after {
+    display: block;
+    width: 100%;
+    height: 5px;
+    background: #8C7A2C;
+    content: '';
+}
+
+.info-area__link {
+    color: #8C7A2C;
+    font-size: 1.75rem;
+    text-decoration: underline;
+    transition: opacity .3s;
+}
+
+.footer__link {
+    display: block;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-family: 'Yu Mincho', serif;
+    font-weight: bold;
+    text-align: center;
+    transition: opacity .3s;
+}
+
+.info-area__link:hover,
+.footer__link:hover {
+    opacity: .6;
+}
+
+.copyright {
+    display: block;
+    text-align: center;
+}
+
+/* ページトップボタン */
+.page-top {
+    opacity: 0;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 5;
+    transform: translateY(-100px);
+    transition: opacity .3s;
+}
+
+.page-top:hover span {
+    opacity: .6;
+}
+
+.page-top span {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: #be2323;
+    transition: all .3s ease;
+}
+
+/* ページトップボタン 矢印 */
+.page-top span::before {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    width: 25px;
+    height: 25px;
+    border-top: 5px solid #fff;
+    border-right: 5px solid #fff;
+    content: '';
+}
+
+/* 下から上に移動 */
+.UpMove{
+    animation: UpAnime 0.5s forwards;
+}
+
+@keyframes UpAnime{
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 上から下に移動 */
+.DownMove{
+    animation: DownAnime 0.5s forwards;
+}
+@keyframes DownAnime{
+from {
+    opacity: 1;
+    transform: translateY(0);
+}
+to {
+    opacity: 1;
+    transform: translateY(100px);
+}
+}
+
+/* 
+    mainvisual
+====================================== */
+.mainvisual {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url(../img/mainvisual.jpg) no-repeat center  / cover;
+}
+
+.mainvisual__logo-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(225px, 20.83vw, 400px);
+}
+
+.mainvisual__catch {
+    position: absolute;
+    top: 15%;
+    filter: drop-shadow(0 0 5px #111);
+    color: #fff;
+    font-size: clamp(1.75rem, 2.98vw, 3.5rem);
+    font-family: 'Yu Mincho', serif;
+    letter-spacing: .5em;
+    writing-mode: vertical-rl;
+    white-space: nowrap;
+}
+
+/* キャッチコピー 縦線 */
+.mainvisual__catch::before {
+    display: inline-block;
+    width: 3px;
+    height: 30px;
+    margin-bottom: 10px;
+    background: #f1f1f1;
+    content: '';
+}
+
+.mainvisual__catch:nth-of-type(1) {
+    right: 17%;
+}
+
+.mainvisual__catch:nth-of-type(2) {
+    left: 17%;
+}
+
+
+/* 
+    news
+====================================== */
+.section-title--news {
+    font-size: 3.5rem;
+    margin-bottom: 50px;
+}
+
+.section-title--news::before {
+    display: none;
+}
+
+.news-content {
+    background: #fff;
+    padding: 50px;
+}
+
+.news-content__list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+.news-content__date {
+    width: 10%;
+}
+
+.news-content__text {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+.news-content__tag--new {
+    display: inline-block;
+    width: 4em;
+    border: 1px solid #999;
+    background: #be2323;
+    color: #fff;
+    text-align: center;
+}
+
+/* 
+    about
+====================================== */
+.about {
+    background: #f1f1f1;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.about-content__text {
+    width: 50%;
+    font-size: clamp(1.75rem, 2.98vw,2.5rem);
+    font-family: 'Yu Mincho', serif;
+    line-height: 3;
+    letter-spacing: .5em;
+    writing-mode: vertical-rl;
+    white-space: nowrap;
+}
+
+.about-content__img {
+    width: 50%;
+}
+
+/* 本文一部太文字 */
+.bold {
+    font-weight: bold;
+}
+
+/* インデント下げ */
+.indent--1em {
+    padding-top: 1em;
+}
+
+.indent--2em {
+    padding-top: 2em;
+}
+
+/* 
+    セクション間 背景画像 bg-img
+====================================== */
+.bg-img {
+    width: 100%;
+    height: 500px;
+}
+
+.bg-img--first {
+    background: url(https://placehold.jp/1340x500.png) no-repeat center / cover;
+}
+
+.bg-img--second {
+    background: url(https://placehold.jp/1340x500.png) no-repeat center / cover;
+}
+
+/* 
+    event-primary
+====================================== */
+.event-primary {
+    background: #f1f1f1;
+}
+
+.event-primary-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.event-primary-content:not(:last-of-type) {
+    margin-bottom: 120px;
+}
+
+.event-primary-content--reverse {
+    flex-direction: row-reverse;
+}
+
+.event-primary-content__text-area {
+    width: 50%;
+    padding: 0 50px;
+}
+
+.event-primary-content__text-area p {
+    line-height: 1.75;
+}
+
+.event-primary-content__text-area p:not(:last-of-type) {
+    margin-bottom: 32px;
+}
+
+.event-primary-content__img-area {
+    width: 50%;
+    padding: 0 0 0 32px;
+}
+.event-primary-content__img-area--reverse {
+    padding: 0 32px 0 0;
+}
+
+.event-primary-content__img {
+    object-fit: cover;
+    height: 100%;
+}
+
+/* 
+    event-secondary
+====================================== */
+.event-secondary {
+    padding-bottom: 100px;
+    background: #f1f1f1;
+}
+
+.event-secondary-content__img-area {
+    margin: 0 -20px 60px;
+}
+
+.event-secondary-content__img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+
+.event-secondary-content__text-area > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.event-secondary-content__text-area > div > p {
+    width: 50%;
+    padding: 8px;
+    line-height: 1.75;
+}
