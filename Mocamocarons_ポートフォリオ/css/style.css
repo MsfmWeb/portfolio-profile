@@ -942,7 +942,7 @@ button {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(60px, 130px));
+    grid-template-columns: repeat(3, minmax(60px, 130px));
     column-gap: 16px;
     row-gap: 24px;
 }
@@ -959,8 +959,8 @@ button {
 }
 
 .grid__item p {
-    font-size: clamp(10px, 2.66vw, 1.125rem);
     text-align: center;
+    font-size: clamp(14px, 3.733vw, 1.125rem);
 }
 
 /* 
@@ -1394,12 +1394,6 @@ button {
         width: 80%;
         margin: 0 auto 16px;
     }
-
-    /* .pick-up-page .btn--large {
-        width: 100%;
-        padding: calc(1em - 3px) 1.8em 1em;
-        font-size: 1.125rem;
-    } */
 
     .grid {
         grid-template-columns: repeat(4, 1fr);
