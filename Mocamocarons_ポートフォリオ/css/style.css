@@ -560,6 +560,7 @@ to {
     service
 ====================================== */
 .service {
+    overflow: hidden;
     padding: 0 0 60px;
 }
 .service-content {
