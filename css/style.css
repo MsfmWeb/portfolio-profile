@@ -70,11 +70,23 @@ ul {
     font-size: clamp(1.125rem, 2.34vw, 2rem);
 }
 
+/* スクロールしたらフェードイン */
+.js-fadeIn {
+    opacity: 0;
+    transform: translateY(50px);
+} 
+
+.js-fadeIn.scrollIn {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform .8s ease-in-out, opacity .8s ease-in-out;
+}
+
 /* ボタン */
 .btn {
     display: inline-block;
     position: relative;
-    width: 350px;
+    width: 20rem;
     margin: 0 auto;
     padding: 1.5rem 5rem;
     border-radius: 50px;
@@ -84,7 +96,7 @@ ul {
     color: #fff;
     font-size: 1.5rem;
     font-weight: bold;
-    transition: all .3s ease;
+    transition: all .5s ease !important;
 }
 
 /* ボタン右の矢印 */
@@ -101,23 +113,15 @@ ul {
     content: '';
 }
 
+
+
+
 .btn:focus,
 .btn:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     box-shadow: 3px 5px 5px rgba(0, 0, 0, .6);
     background-position: bottom right;
-}
-
-/* スクロールしたらフェードイン */
-.js-fadeIn {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all .6s ease-in-out;
-} 
-
-.js-fadeIn.scrollIn {
-    opacity: 1;
-    transform: translateY(0);
+    /* transition: transform .3s ease-in-out, background-position .3s ease-in-out; */
 }
 
 /* 区切り線 */
@@ -280,6 +284,11 @@ ul {
 
 .footer__logo {
     margin-bottom: 16px;
+    transition: opacity .3s ease;
+}
+
+.footer__logo:hover {
+    opacity: .6;
 }
 
 .copyright {
@@ -805,7 +814,7 @@ body.fixed {
 }
 
 .form__submit-btn {
-    width: 250px;
+    width: 15rem;
     margin: 0 auto;
     padding: 1.125rem 5rem;
     border-radius: 5px;

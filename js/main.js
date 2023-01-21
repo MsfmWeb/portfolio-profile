@@ -51,18 +51,9 @@ $(function() {
     $('.header-nav__link').on('click', function() {
         let elmHash = $(this).attr('href');
         let pos = $(elmHash).offset().top;
-        let headerHeight = $('.header').innerHeight();
-        //スムーススクロール
-                //画面幅960px以上の時はヘッダーの高さを引いた地点までスクロール
-        if(window.matchMedia('(min-width: 960px)').matches) {
-            $('body, html').animate({
-                scrollTop: pos - headerHeight
-            }, 500);
-        } else { //画面幅959px以下の時はヘッダーの高さは考慮しない
-            $('body, html').animate({
-                scrollTop: pos
-            }, 500);
-        }
+        $('body, html').animate({
+            scrollTop: pos
+        }, 500);
 
         if($('.hamburger').hasClass('active')) {
             $('.hamburger').removeClass('active');
@@ -92,21 +83,21 @@ $(function() {
 
 
 
-    //スクロールした際の動きを関数でまとめる
+    //ページトップボタン
     function PageTopAnime() {
         var scroll = $(window).scrollTop();
-        if (scroll >= 600) {//上から600pxスクロールしたら
-            $('#page-top').removeClass('DownMove');//#page-topについているDownMoveというクラス名を除く
-            $('#page-top').addClass('UpMove');//#page-topについているUpMoveというクラス名を付与
+        if (scroll >= 600) {
+            $('#page-top').removeClass('DownMove');
+            $('#page-top').addClass('UpMove');
         } else {
-            if ($('#page-top').hasClass('UpMove')) {//すでに#page-topにUpMoveというクラス名がついていたら
-                $('#page-top').removeClass('UpMove');//UpMoveというクラス名を除き
-                $('#page-top').addClass('DownMove');//DownMoveというクラス名を#page-topに付与
+            if ($('#page-top').hasClass('UpMove')) {
+                $('#page-top').removeClass('UpMove');
+                $('#page-top').addClass('DownMove');
             }
         }
 
         var wH = window.innerHeight; //ブラウザの内側の高さ（ページが表示され、見えている高さ）を取得
-            var footerPos = $('.footer').offset().top; //#footerのtopの位置を取得
+            var footerPos = $('.footer').offset().top;
             if(scroll + wH >= (footerPos + 20)) {//時点でのスクロール量 + 現在表示されているブラウザの高さ と #footerのtop位置 + 20(ページトップボタンのbottom位置)を比較して前者が大きいならば
                 var pos = (scroll + wH) - footerPos + 20;//(時点でのスクロール量 + 現在表示されているブラウザの高さ) - #footerのtop位置 + 20(ページトップボタンのbottom位置)
                 $('#page-top').css('bottom', pos); //ページトップボタンのbottomにposの値を指定
@@ -117,9 +108,9 @@ $(function() {
             }
     }
 
-    // 画面をスクロールをしたら動かしたい場合の記述
+    // 画面をスクロールしたらページトップボタンの関数を呼ぶ
     $(window).scroll(function () {
-        PageTopAnime();/* スクロールした際の動きの関数を呼ぶ*/
+        PageTopAnime();
     });
 
     // #page-topをクリックした際の設定
@@ -129,8 +120,6 @@ $(function() {
         }, 500);//ページトップスクロールの速さ。数字が大きいほど遅くなる
         return false;//リンク自体の無効化
     });
-
-
 
     
     //スクロールに合わせた時間差フェードイン
