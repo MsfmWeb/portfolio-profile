@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Roboto&display=swap');
 /* 
     ページ設定
 ====================================== */
@@ -96,7 +95,7 @@ ul {
     color: #fff;
     font-size: 1.5rem;
     font-weight: bold;
-    transition: all .5s ease !important;
+    transition: transform .3s ease-in-out, background-position .3s ease-in-out, box-shadow .3s ease-in-out;
 }
 
 /* ボタン右の矢印 */
@@ -113,15 +112,10 @@ ul {
     content: '';
 }
 
-
-
-
-.btn:focus,
 .btn:hover {
     transform: scale(1.05);
     box-shadow: 3px 5px 5px rgba(0, 0, 0, .6);
     background-position: bottom right;
-    /* transition: transform .3s ease-in-out, background-position .3s ease-in-out; */
 }
 
 /* 区切り線 */
@@ -212,7 +206,6 @@ ul {
 }
 
 /* ナビゲーションリンク hover 昇降ボックス */
-.header-nav__item:focus .header-nav__link,
 .header-nav__item:hover .header-nav__link {
     transform: translateY(100%);
 }
@@ -228,7 +221,6 @@ ul {
     height: 80px;
 }
 
-.hamburger:focus,
 .hamburger:hover {
     opacity: .6;
     transition: opacity .3s ease;
@@ -335,7 +327,6 @@ ul {
 }
 
 /* ページトップボタン hover時 */
-.page-top:focus span,
 .page-top:hover span {
     opacity: .7;
 }
@@ -475,7 +466,9 @@ to {
 }
 
 .profile-text-area__text:not(:last-of-type) {
+    border-bottom: 1px solid #999;
     margin-bottom: 16px;
+    padding-bottom: 1rem;
 }
 
 /* 
@@ -542,7 +535,6 @@ to {
 }
 
 /* 画像hoverで拡大 */
-.work-content__img:focus,
 .work-content__img:hover {
     box-shadow: 6px 10px 10px rgba(0, 0, 0, .6);
     transform: scale(1.05);
@@ -617,7 +609,7 @@ to {
     transition: background-color .3s ease;
 }
 
-.modal-content__btn:focus,
+
 .modal-content__btn:hover {
     background: #0067C0;
 }
@@ -920,7 +912,6 @@ body.fixed {
         transition: opacity .3s ease;
     }
 
-    .header__logo:focus,
     .header__logo:hover {
         opacity: .6;
     }

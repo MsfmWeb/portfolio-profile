@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Leaf</title>
+    <link rel="icon" href="img/favicon.png">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- loading -->
+    <div id="loader-bg">
+        <div id="loader">
+            <div class="spinner"></div>
+            <p class="loader__text">Now Loading...</p>
+        </div>
+    </div>
+    <!-- /.loading -->
+    <div id="wrap" ontouchstart="">
+    <!-- header -->
+    <header class="header">
+        <div class="header__container container">
+            <a href="index.html">
+                <img class="logo header__logo" src="img/logo.svg" alt="Cafe Leaf">
+            </a>
+            <nav class="header__nav nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a class="nav__link" href="#mainvisual">Home</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#news">News</a></li>
+                    <li class="nav__item"><a class="nav__link" href="menu.html">Menu</a></li>
+                    <li class="nav__item"><a class="nav__link" href="about.html">About</a></li>
+                    <li class="nav__item"><a class="nav__link" href="online_shop.html">Online Shop</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#access">Access</a></li>
+                </ul>
+                <a href="index.html">
+                    <img class="logo nav__logo" src="img/logo.svg" alt="Cafe Leaf">
+                </a>
+            </nav>
+            <button class="hamburger">
+                <span class="hamburger__bar"></span>
+                <span class="hamburger__bar"></span>
+                <span class="hamburger__bar"></span>
+            </button>
+        </div>
+    </header>
+    <!-- /header -->
+    <!-- main -->
+    <main>
+        <!-- mainvisual -->
+        <div id="mainvisual" class="mainvisual ">
+            <div class="title-wrap">
+                <h1 class="title">Cafe Leaf</h1>
+            </div>
+            <div class="video-wrap">
+                <video id="video" class="main__video" src="img/mainvisual.mp4" autoplay loop  muted playsinline poster="img/mainvisual_img.png"></video>
+                <!-- autoplay loop -->
+            </div>
+        </div>
+        <!-- /.mainvisual -->
+        <!-- news -->
+        <section id="news" class="news">
+            <div class="container section-wrap">
+                <h2 class="section-title js-fadeIn">
+                    News
+                </h2>
+                <dl class="news-list js-fadeIn">
+                    <div>
+                        <dt class="news-list__date">2022.12.01<span class="news__tag">New</span></dt>
+                        <dd class="news-list__text"><a class="news-list__link" href="">年末年始の営業について</a></dd>
+                    </div>
+                    <div>
+                        <dt class="news-list__date">2022.11.16</dt>
+                        <dd class="news-list__text"><a class="news-list__link" href="">本日より自家製ドライフルーツ入り酵母パンが発売です！</a></dd>
+                    </div>
+                    <div>
+                        <dt class="news-list__date">2022.10.04</dt>
+                        <dd class="news-list__text"><a class="news-list__link" href="">店内に新しい観葉植物を設置しました！</a></dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+        <!-- /.news -->
+
+        <!-- menu -->
+        <section id="menu" class="menu">
+            <div class="shape--top shape--beige">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                </svg>
+            </div>
+            <div class="container section-wrap">
+                <h2 class="section-title js-fadeIn">
+                    こだわりの珈琲と軽食で<br>一息つきませんか？
+                </h2>
+                <ul class="menu-card">
+                    <li class="menu-card__item js-fadeIn">
+                        <img class="menu-card__img" src="img/black_coffee.png" alt="">
+                    </li>
+                    <li class="menu-card__item js-fadeIn">
+                        <img class="menu-card__img" src="img/latte.png" alt="">
+                    </li>
+                    <li class="menu-card__item js-fadeIn">
+                        <img class="menu-card__img" src="img/bread.png" alt="">
+                    </li>
+                </ul>
+                <a class="btn" href="menu.html">See more</a>
+            </div>
+        </section>
+        
+        <!-- /.menu -->
+        <!-- 固定背景 -->
+        <div class="break-img">
+            <div class="shape--top shape--green">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                </svg>
+            </div>
+            <div class="break-img--coffee"></div>
+            <div class="shape--bottom shape--green">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                </svg>
+            </div>
+        </div>
+        <!-- /固定背景 -->
+        <!-- about-online-wrap -->
+        <div class="about-online-wrap">
+            <div class="container section-wrap">
+                <!-- about -->
+                <section id="about" class="about">
+                    <div class="about__content content">
+                        <div class="content__text-area about-content__text-area js-fadeIn">
+                            <h2 class="section-title">当店について</h2>
+                            <p class="content__text">
+                                当店では、来店されるお客様に一息ついて頂ける空間作りを大切にしています。忙しい毎日や疲れを感じた時にいつもと少し違う珈琲や軽食を嗜んで、ふっと落ち着ける場所を提供致します。店内には、自然に目に入るような位置に観葉植物や気持ちが和らぐようなあしらいをしておりますので、ご来店の際は是非ご覧になってみてくださいね。
+                            </p>
+                            <a class="btn" href="about.html">Read more</a>
+                        </div>
+                        <div class="content__img-area js-fadeIn">
+                            <img class="content__img" src="img/about01.png" alt="店内写真">
+                        </div>
+                    </div>
+                </section>
+                <!-- /.about -->
+                <!-- online-shop -->
+                <section id="online-shop" class="online-shop">
+                    <div class="online-shop__content content content--reverse">
+                        <div class="content__text-area content__text-area--m-b online-shop-content__text-area js-fadeIn">
+                            <h2 class="section-title">オンラインショップ</h2>
+                            <p class="content__text">
+                                来店されたお客様から自宅で食べたり、友人にも振る舞いたいと言ったご要望を頂きまして、当店自家製の軽食をオンラインショップでもご購入頂けるようになりました。是非色々なシチュエーションに合わせて召し上がってみてください！
+                            </p>
+                            <a class="btn" href="online_shop.html">Online Shop</a>
+                        </div>
+                        <div class="content__img-area content__img-area--m-b js-fadeIn">
+                            <img class="content__img" src="img/online_shop01.png" alt="バナナケーキの写真">
+                        </div>
+                    </div>
+                </section>
+                <!-- /.online-shop -->
+            </div><!-- /.container -->
+        </div>
+        <!-- /.about-online-wrap -->
+        <!-- 固定背景 -->
+        <!-- <div class="break-img break-img--shop"></div> -->
+        <!-- /固定背景 -->
+        <!-- access -->
+        <section id="access" class="access">
+            <div class="shape--top shape--green">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                </svg>
+            </div>
+            <div class="container section-wrap">
+                <h2 class="section-title js-fadeIn">Access</h2>
+                <div class="access-info">
+                    <div class="info__map js-fadeIn">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2915.6369626081096!2d141.3533328653457!3d43.04906932914662!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b2a27ee23ea55%3A0xdedc877edeaf642!2z5YyX6Zai5p2x5a2m6Zmi!5e0!3m2!1sja!2sjp!4v1669552893113!5m2!1sja!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <dl class="info__list js-fadeIn">
+                        <div>
+                            <dt class="info__label">店舗名</dt>
+                            <dd class="info__text">Cafe Leaf</dd>
+                        </div>
+                        <div>
+                            <dt class="info__label">住所</dt>
+                            <dd class="info__text">〒064-0809<br>北海道札幌市中央区南9条西3丁目2-10 札幌K.Sビル 6F</dd>
+                        </div>
+                        <div>
+                            <dt class="info__label">電話番号</dt>
+                            <dd class="info__text">99-9999-9999</dd>
+                        </div>
+                        <div>
+                            <dt class="info__label">営業時間</dt>
+                            <dd class="info__text">11:00~21:00(L.O.20:30)</dd>
+                        </div>
+                        <div>
+                            <dt class="info__label">定休日</dt>
+                            <dd class="info__text">火曜日</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </section>
+    </div>
+        <!-- ./access -->
+    </main>
+    <!-- /main -->
+    <!-- footer -->
+    <footer class="footer">
+        <button id="page-top" class="page-top"><span></span><img class="page-top__img" src="img/cofee_l.png" alt=""></button>
+        <div class="container">
+            <img class="footer__logo logo" src="img/logo.svg" alt="Cafe Leaf">
+            <p class="copyright">&copy; 2022 Cafe Leaf</p>
+        </div>
+    </footer>
+    <!-- /footer -->
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
